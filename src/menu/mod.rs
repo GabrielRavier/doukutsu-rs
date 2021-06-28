@@ -2,7 +2,6 @@ use crate::common::Rect;
 use crate::framework::context::Context;
 use crate::framework::error::GameResult;
 use crate::input::combined_menu_controller::CombinedMenuController;
-use crate::player::skin::basic::BasicPlayerSkin;
 use crate::shared_game_state::SharedGameState;
 use std::cell::Cell;
 

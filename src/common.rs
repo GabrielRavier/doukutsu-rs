@@ -1,4 +1,3 @@
-use std::cmp::Ordering;
 use std::fmt;
 
 use lazy_static::lazy_static;

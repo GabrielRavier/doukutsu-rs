@@ -8,7 +8,6 @@ use crate::framework::graphics;
 use crate::map::WaterRegionType;
 use crate::player::Player;
 use crate::shared_game_state::SharedGameState;
-use crate::framework::graphics::BlendMode;
 
 const TENSION: f32 = 0.03;
 const DAMPENING: f32 = 0.01;

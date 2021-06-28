@@ -3,7 +3,7 @@ use std::ops::Range;
 use log::info;
 
 use crate::caret::CaretType;
-use crate::common::{fix9_scale, interpolate_fix9_scale, Color, Direction, FadeDirection, FadeState, Rect};
+use crate::common::{interpolate_fix9_scale, Color, Direction, FadeDirection, FadeState, Rect};
 use crate::components::boss_life_bar::BossLifeBar;
 use crate::components::draw_common::Alignment;
 use crate::components::flash::Flash;

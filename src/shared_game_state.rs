@@ -30,7 +30,6 @@ use crate::stage::StageData;
 use crate::str;
 use crate::text_script::{ScriptMode, TextScriptExecutionState, TextScriptVM};
 use crate::texture_set::TextureSet;
-use bitvec::array::BitArray;
 use crate::scene::title_scene::TitleScene;
 
 #[derive(PartialEq, Eq, Copy, Clone)]
