@@ -115,8 +115,8 @@ impl WaterRenderer {
     }
 }
 
-impl GameEntity<(&Player)> for WaterRenderer {
-    fn tick(&mut self, state: &mut SharedGameState, (player): (&Player)) -> GameResult<()> {
+impl GameEntity<&Player> for WaterRenderer {
+    fn tick(&mut self, state: &mut SharedGameState, player: &Player) -> GameResult<()> {
         let player_x = player.x as f32 / 512.0 + 8.0;
         let player_y = player.y as f32 / 512.0 + 8.0;
 

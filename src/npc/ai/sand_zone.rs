@@ -1483,13 +1483,13 @@ impl NPC {
                     self.anim_counter = 0;
                     self.anim_num += 1;
                 }
-                if (self.anim_num > 1) {
+                if self.anim_num > 1 {
                     self.anim_num = 0;
                 }
-                if (self.direction == Direction::Left && self.flags.hit_left_wall()) {
+                if self.direction == Direction::Left && self.flags.hit_left_wall() {
                     self.direction = Direction::Right;
                 }
-                if (self.direction == Direction::Right && self.flags.hit_right_wall()) {
+                if self.direction == Direction::Right && self.flags.hit_right_wall() {
                     self.direction = Direction::Left;
                 }
                 self.x += self.direction.vector_x() * 0x100;

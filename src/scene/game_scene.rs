@@ -1540,7 +1540,7 @@ impl GameScene {
             }
         }
 
-        self.water_renderer.tick(state, (&self.player1))?;
+        self.water_renderer.tick(state, &self.player1)?;
 
         if self.map_name_counter > 0 {
             self.map_name_counter -= 1;
