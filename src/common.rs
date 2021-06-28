@@ -395,6 +395,7 @@ fn lerp_f64(v1: f64, v2: f64, t: f64) -> f64 {
 }
 
 #[inline(always)]
+#[allow(dead_code)]
 fn lerp_f32(v1: f32, v2: f32, t: f32) -> f32 {
     v1 * (1.0 - t) + v2 * t
 }
