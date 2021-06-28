@@ -758,7 +758,6 @@ impl TextScriptVM {
                     break;
                 }
                 TextScriptExecutionState::Reset => {
-                    state.reset();
                     state.start_new_game(ctx)?;
                     break;
                 }
