@@ -6,7 +6,7 @@ fn main() {
     let result = doukutsu_rs::init();
 
     #[cfg(target_os = "windows")]
-        unsafe {
+    unsafe {
         use winapi::_core::ptr::null_mut;
         use winapi::um::winuser::MessageBoxW;
         use winapi::um::winuser::MB_OK;
