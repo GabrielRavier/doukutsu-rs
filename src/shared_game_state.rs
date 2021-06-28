@@ -371,7 +371,6 @@ impl SharedGameState {
             log::warn!("No save game found, starting new one...");
         }
 
-        self.reset();
         self.start_new_game(ctx)
     }
 
