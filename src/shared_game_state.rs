@@ -290,6 +290,7 @@ impl SharedGameState {
     }
 
     pub fn start_new_game(&mut self, ctx: &mut Context) -> GameResult {
+        self.reset();
         #[cfg(feature = "scripting")]
             self.lua.reload_scripts(ctx)?;
 
