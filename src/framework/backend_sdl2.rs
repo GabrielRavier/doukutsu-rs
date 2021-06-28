@@ -668,9 +668,9 @@ impl BackendRenderer for SDL2Renderer {
 
     fn draw_triangle_list(
         &mut self,
-        vertices: Vec<VertexData>,
-        texture: Option<&Box<dyn BackendTexture>>,
-        shader: BackendShader,
+        _vertices: Vec<VertexData>,
+        _texture: Option<&Box<dyn BackendTexture>>,
+        _shader: BackendShader,
     ) -> GameResult<()> {
         Err(GameError::RenderError("Unsupported operation".to_string()))
     }

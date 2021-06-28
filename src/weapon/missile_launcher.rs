@@ -6,9 +6,9 @@ use crate::weapon::Weapon;
 impl Weapon {
     pub(in crate::weapon) fn tick_missile_launcher(
         &mut self,
-        player: &mut Player,
-        player_id: TargetPlayer,
-        bullet_manager: &mut BulletManager,
-        state: &mut SharedGameState,
+        _player: &mut Player,
+        _player_id: TargetPlayer,
+        _bullet_manager: &mut BulletManager,
+        _state: &mut SharedGameState,
     ) {}
 }

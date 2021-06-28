@@ -58,7 +58,7 @@ impl PlayerController for TouchPlayerController {
                 }
             }
             TouchControlType::Controls => {
-                let (left, top, right, bottom) = screen_insets_scaled(ctx, state.scale);
+                let (left, _top, right, bottom) = screen_insets_scaled(ctx, state.scale);
 
                 let left = 4 + left as isize;
                 let top = 4 + bottom as isize;

@@ -781,7 +781,6 @@ impl GameScene {
 
         graphics::clear(ctx, Color::from_rgb(100, 100, 110));
         {
-            let scale = state.scale;
             let batch = state.texture_set.get_or_load_batch(ctx, &state.constants, "builtin/lightmap/spot")?;
 
             for (player, inv) in

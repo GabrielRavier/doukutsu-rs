@@ -126,7 +126,7 @@ impl BackendRenderer for NullRenderer {
         Ok(())
     }
 
-    fn draw_triangle_list(&mut self, vertices: Vec<VertexData>, texture: Option<&Box<dyn BackendTexture>>, shader: BackendShader) -> GameResult<()> {
+    fn draw_triangle_list(&mut self, _vertices: Vec<VertexData>, _texture: Option<&Box<dyn BackendTexture>>, _shader: BackendShader) -> GameResult<()> {
         Ok(())
     }
 }
