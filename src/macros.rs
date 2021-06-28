@@ -43,6 +43,7 @@ macro_rules! bitfield_fields {
     };
     (@field $(#[$attribute:meta])* ($($vis:tt)*) $t:ty, $from:ty, $into:ty, _, $setter:ident: $bit:expr) => {
         $(#[$attribute])*
+            #[allow(dead_code)]
         $($vis)* fn $setter(&mut self, value: bool) {
             use crate::macros::Bit;
             self.set_bit($bit, value);
@@ -74,6 +75,7 @@ macro_rules! bitfield_fields {
     };
     (@field $(#[$attribute:meta])* ($($vis:tt)*) $t:ty, $from:ty, $into:ty, $getter:ident, _: $bit:expr) => {
         $(#[$attribute])*
+            #[allow(dead_code)]
         $($vis)* fn $getter(&self) -> bool {
             use crate::macros::Bit;
             self.bit($bit)

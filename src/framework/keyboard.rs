@@ -289,6 +289,7 @@ impl KeyboardContext {
         }
     }
 
+    #[allow(dead_code)]
     pub(crate) fn set_modifiers(&mut self, keymods: KeyMods) {
         self.active_modifiers = keymods;
     }
@@ -297,6 +298,7 @@ impl KeyboardContext {
         self.pressed_keys_set.contains(&key)
     }
 
+    #[allow(dead_code)]
     pub(crate) fn is_key_repeated(&self) -> bool {
         if self.last_pressed.is_some() {
             self.last_pressed == self.current_pressed
@@ -305,10 +307,12 @@ impl KeyboardContext {
         }
     }
 
+    #[allow(dead_code)]
     pub(crate) fn pressed_keys(&self) -> &HashSet<ScanCode> {
         &self.pressed_keys_set
     }
 
+    #[allow(dead_code)]
     pub(crate) fn active_mods(&self) -> KeyMods {
         self.active_modifiers
     }
@@ -327,21 +331,25 @@ pub fn is_key_pressed(ctx: &Context, key: ScanCode) -> bool {
 
 /// Checks if the last keystroke sent by the system is repeated,
 /// like when a key is held down for a period of time.
+#[allow(dead_code)]
 pub fn is_key_repeated(ctx: &Context) -> bool {
     ctx.keyboard_context.is_key_repeated()
 }
 
 /// Returns a reference to the set of currently pressed keys.
+#[allow(dead_code)]
 pub fn pressed_keys(ctx: &Context) -> &HashSet<ScanCode> {
     ctx.keyboard_context.pressed_keys()
 }
 
 /// Checks if keyboard modifier (or several) is active.
+#[allow(dead_code)]
 pub fn is_mod_active(ctx: &Context, keymods: KeyMods) -> bool {
     (ctx.keyboard_context.active_mods().0 & keymods.0) != 0
 }
 
 /// Returns currently active keyboard modifiers.
+#[allow(dead_code)]
 pub fn active_mods(ctx: &Context) -> KeyMods {
     ctx.keyboard_context.active_mods()
 }

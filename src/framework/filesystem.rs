@@ -112,32 +112,38 @@ impl Filesystem {
     /// Create an empty directory in the user dir
     /// with the given name.  Any parents to that directory
     /// that do not exist will be created.
+    #[allow(dead_code)]
     pub(crate) fn user_create_dir<P: AsRef<path::Path>>(&self, path: P) -> GameResult<()> {
         self.user_vfs.mkdir(path.as_ref())
     }
 
     /// Deletes the specified file in the user dir.
+    #[allow(dead_code)]
     pub(crate) fn user_delete<P: AsRef<path::Path>>(&self, path: P) -> GameResult<()> {
         self.user_vfs.rm(path.as_ref())
     }
 
     /// Deletes the specified directory in the user dir,
     /// and all its contents!
+    #[allow(dead_code)]
     pub(crate) fn user_delete_dir<P: AsRef<path::Path>>(&self, path: P) -> GameResult<()> {
         self.user_vfs.rmrf(path.as_ref())
     }
 
     /// Check whether a file or directory in the user directory exists.
+    #[allow(dead_code)]
     pub(crate) fn user_exists<P: AsRef<path::Path>>(&self, path: P) -> bool {
         self.user_vfs.exists(path.as_ref())
     }
 
     /// Check whether a file or directory exists.
+    #[allow(dead_code)]
     pub(crate) fn exists<P: AsRef<path::Path>>(&self, path: P) -> bool {
         self.vfs.exists(path.as_ref())
     }
 
     /// Check whether a path points at a file.
+    #[allow(dead_code)]
     pub(crate) fn user_is_file<P: AsRef<path::Path>>(&self, path: P) -> bool {
         self.user_vfs
             .metadata(path.as_ref())
@@ -146,11 +152,13 @@ impl Filesystem {
     }
 
     /// Check whether a path points at a file.
+    #[allow(dead_code)]
     pub(crate) fn is_file<P: AsRef<path::Path>>(&self, path: P) -> bool {
         self.vfs.metadata(path.as_ref()).map(|m| m.is_file()).unwrap_or(false)
     }
 
     /// Check whether a path points at a directory.
+    #[allow(dead_code)]
     pub(crate) fn user_is_dir<P: AsRef<path::Path>>(&self, path: P) -> bool {
         self.user_vfs
             .metadata(path.as_ref())
@@ -159,6 +167,7 @@ impl Filesystem {
     }
 
     /// Check whether a path points at a directory.
+    #[allow(dead_code)]
     pub(crate) fn is_dir<P: AsRef<path::Path>>(&self, path: P) -> bool {
         self.vfs.metadata(path.as_ref()).map(|m| m.is_dir()).unwrap_or(false)
     }
@@ -167,6 +176,7 @@ impl Filesystem {
     /// in no particular order.
     ///
     /// Lists the base directory if an empty path is given.
+    #[allow(dead_code)]
     pub(crate) fn user_read_dir<P: AsRef<path::Path>>(
         &self,
         path: P,
@@ -193,6 +203,7 @@ impl Filesystem {
         Ok(Box::new(itr))
     }
 
+    #[allow(dead_code)]
     fn write_to_string(&self) -> String {
         use std::fmt::Write;
         let mut s = String::new();
@@ -218,6 +229,7 @@ impl Filesystem {
     /// harder than it looks to make it bulletproof across platforms.
     /// But it can be very nice for debugging and dev purposes, such as
     /// by pushing `$CARGO_MANIFEST_DIR/resources` to it
+    #[allow(dead_code)]
     pub fn mount(&mut self, path: &path::Path, readonly: bool) {
         let physfs = vfs::PhysicalFS::new(path, readonly);
         trace!("Mounting new path: {:?}", physfs);
@@ -259,32 +271,38 @@ pub fn user_create<P: AsRef<path::Path>>(ctx: &Context, path: P) -> GameResult<F
 /// Create an empty directory in the user dir
 /// with the given name.  Any parents to that directory
 /// that do not exist will be created.
+#[allow(dead_code)]
 pub fn user_create_dir<P: AsRef<path::Path>>(ctx: &Context, path: P) -> GameResult {
     ctx.filesystem.user_create_dir(path.as_ref())
 }
 
 /// Deletes the specified file in the user dir.
+#[allow(dead_code)]
 pub fn user_delete<P: AsRef<path::Path>>(ctx: &Context, path: P) -> GameResult {
     ctx.filesystem.user_delete(path.as_ref())
 }
 
 /// Deletes the specified directory in the user dir,
 /// and all its contents!
+#[allow(dead_code)]
 pub fn user_delete_dir<P: AsRef<path::Path>>(ctx: &Context, path: P) -> GameResult {
     ctx.filesystem.user_delete_dir(path.as_ref())
 }
 
 /// Check whether a file or directory exists.
+#[allow(dead_code)]
 pub fn user_exists<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
     ctx.filesystem.user_exists(path.as_ref())
 }
 
 /// Check whether a path points at a file.
+#[allow(dead_code)]
 pub fn user_is_file<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
     ctx.filesystem.user_is_file(path)
 }
 
 /// Check whether a path points at a directory.
+#[allow(dead_code)]
 pub fn user_is_dir<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
     ctx.filesystem.user_is_dir(path)
 }
@@ -293,6 +311,7 @@ pub fn user_is_dir<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
 /// in no particular order.
 ///
 /// Lists the base directory if an empty path is given.
+#[allow(dead_code)]
 pub fn user_read_dir<P: AsRef<path::Path>>(
     ctx: &Context,
     path: P,
@@ -306,11 +325,13 @@ pub fn exists<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
 }
 
 /// Check whether a path points at a file.
+#[allow(dead_code)]
 pub fn is_file<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
     ctx.filesystem.is_file(path)
 }
 
 /// Check whether a path points at a directory.
+#[allow(dead_code)]
 pub fn is_dir<P: AsRef<path::Path>>(ctx: &Context, path: P) -> bool {
     ctx.filesystem.is_dir(path)
 }
@@ -330,6 +351,7 @@ pub fn read_dir<P: AsRef<path::Path>>(ctx: &Context, path: P) -> GameResult<Box<
 /// harder than it looks to make it bulletproof across platforms.
 /// But it can be very nice for debugging and dev purposes, such as
 /// by pushing `$CARGO_MANIFEST_DIR/resources` to it
+#[allow(dead_code)]
 pub fn mount(ctx: &mut Context, path: &path::Path, readonly: bool) {
     ctx.filesystem.mount(path, readonly)
 }

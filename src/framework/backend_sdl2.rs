@@ -998,6 +998,7 @@ impl ImguiSdl2 {
         Self { mouse_press: [false; 5], ignore_keyboard: false, ignore_mouse: false, cursor: None, sdl_cursor: None }
     }
 
+    #[allow(dead_code)]
     pub fn ignore_event(&self, event: &Event) -> bool {
         match *event {
             Event::KeyDown { .. } | Event::KeyUp { .. } | Event::TextEditing { .. } | Event::TextInput { .. } => {
@@ -1104,6 +1105,7 @@ impl ImguiSdl2 {
         self.ignore_mouse = io.want_capture_mouse;
     }
 
+    #[allow(dead_code)]
     pub fn prepare_render(&mut self, ui: &imgui::Ui, window: &sdl2::video::Window) {
         let io = ui.io();
         if !io.config_flags.contains(ConfigFlags::NO_MOUSE_CURSOR_CHANGE) {

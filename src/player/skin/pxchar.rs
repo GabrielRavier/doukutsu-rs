@@ -14,6 +14,7 @@ struct PxCharReader<T: AsRef<[u8]>> {
 }
 
 impl<T: AsRef<[u8]>> PxCharReader<T> {
+    #[allow(dead_code)]
     fn read_integer_shifted<O>(&mut self, bits: usize) -> GameResult<O>
     where
         O: 'static + Num + Copy,
@@ -53,6 +54,7 @@ impl<T: AsRef<[u8]>> PxCharReader<T> {
         }
     }
 
+    #[allow(dead_code)]
     fn read_ranged<O>(&mut self, max_value: u32) -> GameResult<O>
     where
         O: 'static + Num + Copy,
@@ -65,6 +67,7 @@ impl<T: AsRef<[u8]>> PxCharReader<T> {
         self.read_integer_shifted((32 - max_value.next_power_of_two().leading_zeros()) as usize)
     }
 
+    #[allow(dead_code)]
     fn read_string(&mut self, max_length: u32) -> GameResult<String> {
         let mut output = Vec::new();
 
@@ -96,6 +99,7 @@ impl<T: AsRef<[u8]>> Read for PxCharReader<T> {
 pub struct PxChar {}
 
 impl PxChar {
+    #[allow(dead_code)]
     pub fn load_pxchar(path: &str, ctx: &mut Context) -> GameResult<PxChar> {
         let mut reader = PxCharReader {
             cursor: Cursor::new({

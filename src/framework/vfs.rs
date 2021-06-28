@@ -70,6 +70,7 @@ impl OpenOptions {
     }
 
     /// Append at the end of the file
+    #[allow(dead_code)]
     pub fn append(mut self, append: bool) -> OpenOptions {
         self.append = append;
         self
@@ -419,6 +420,7 @@ impl OverlayFS {
     }
 
     /// Returns a list of registered VFS roots.
+    #[allow(dead_code)]
     pub fn roots(&self) -> &VecDeque<Box<dyn VFS>> {
         &self.roots
     }

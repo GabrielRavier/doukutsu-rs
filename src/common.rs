@@ -254,6 +254,7 @@ pub struct Point<T: Num + PartialOrd + Copy = isize> {
 
 impl<T: Num + PartialOrd + Copy> Point<T> {
     #[inline(always)]
+    #[allow(dead_code)]
     pub fn new(x: T, y: T) -> Point<T> {
         Point {
             x,

@@ -212,6 +212,7 @@ impl PixTonePlayback {
         self.samples.insert(id, params.synth());
     }
 
+    #[allow(dead_code)]
     pub fn set_sample_data(&mut self, id: u8, data: Vec<i16>) {
         self.samples.insert(id, data);
     }
@@ -245,6 +246,7 @@ impl PixTonePlayback {
         }
     }
 
+    #[allow(dead_code)]
     pub fn play_concurrent(&mut self, id: u8, tag: u32) {
         self.playback_state.push(PlaybackState { id, pos: 0.0, tag, looping: false });
     }
