@@ -222,7 +222,7 @@ impl BackendEventLoop for SDL2EventLoop {
 
         #[cfg(feature = "render-opengl")]
         if *self.opengl_available.borrow() {
-            let mut imgui = init_imgui()?;
+            let imgui = init_imgui()?;
 
             let refs = self.refs.clone();
 
