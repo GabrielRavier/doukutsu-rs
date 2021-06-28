@@ -95,7 +95,7 @@ impl Map {
             }
 
             Ok(chars.iter().collect())
-        };
+        }
 
         fn skip_string<R: io::Read>(map_data: &mut R) -> GameResult {
             let bytes = map_data.read_u8()? as u32;
@@ -104,7 +104,7 @@ impl Map {
             }
 
             Ok(())
-        };
+        }
 
         let map_name = read_string(&mut map_data)?;
         skip_string(&mut map_data)?; // left, right, up, down

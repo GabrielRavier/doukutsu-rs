@@ -273,7 +273,7 @@ impl SoundManager {
             }
 
             return Err(GameError::ParseError("unexpected end.".to_string()))
-        };
+        }
 
         for channel in params.channels.iter_mut() {
             channel.enabled = next_string::<u8, R>(&mut reader)? != 0;
