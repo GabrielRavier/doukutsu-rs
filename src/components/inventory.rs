@@ -30,6 +30,7 @@ struct InvWeaponData {
 pub struct InventoryUI {
     tick: usize,
     text_y_pos: u16,
+    #[allow(dead_code)] // TODO: Implement this field so we can remove this
     current_script: u16,
     selected_weapon: u16,
     selected_item: u16,
