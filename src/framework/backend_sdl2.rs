@@ -58,6 +58,7 @@ struct SDL2Context {
     video: VideoSubsystem,
     canvas: WindowCanvas,
     texture_creator: TextureCreator<WindowContext>,
+    #[allow(dead_code)] // We use this to avoid a warning which we get since this is primarily used for the purposes of being destroyed later and thus is never read
     gl_context: Option<sdl2::video::GLContext>,
     blend_mode: sdl2::render::BlendMode,
 }
@@ -950,7 +951,6 @@ pub struct ImguiSdl2 {
     ignore_mouse: bool,
     ignore_keyboard: bool,
     cursor: Option<MouseCursor>,
-    sdl_cursor: Option<Cursor>,
 }
 
 struct Sdl2ClipboardBackend(sdl2::clipboard::ClipboardUtil);
@@ -995,7 +995,7 @@ impl ImguiSdl2 {
         imgui.io_mut().key_map[Key::Y as usize] = Scancode::Y as u32;
         imgui.io_mut().key_map[Key::Z as usize] = Scancode::Z as u32;
 
-        Self { mouse_press: [false; 5], ignore_keyboard: false, ignore_mouse: false, cursor: None, sdl_cursor: None }
+        Self { mouse_press: [false; 5], ignore_keyboard: false, ignore_mouse: false, cursor: None }
     }
 
     #[allow(dead_code)]
@@ -1131,12 +1131,10 @@ impl ImguiSdl2 {
                         let sdl_cursor = Cursor::from_system(sdl_cursor).unwrap();
                         sdl_cursor.set();
                         self.cursor = Some(mouse_cursor);
-                        self.sdl_cursor = Some(sdl_cursor);
                     }
                 }
                 _ => {
                     self.cursor = None;
-                    self.sdl_cursor = None;
                     mouse_util.show_cursor(false);
                 }
             }
