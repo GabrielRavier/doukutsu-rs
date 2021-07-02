@@ -418,6 +418,8 @@ pub trait PhysicalEntity {
         let half_tile_size = tile_size / 2;
         let quarter_tile_size = half_tile_size / 2;
 
+        self.flags().set_hit_left_higher_half(true);
+
         if self.x() < (x * 2 + 1) * half_tile_size
             && self.x() > (x * 2 - 1) * half_tile_size
             && (self.y() + self.hit_bounds().bottom as i32)
@@ -438,7 +440,6 @@ pub trait PhysicalEntity {
                 self.set_vel_y(0);
             }
 
-            self.flags().set_hit_left_higher_half(true);
             self.flags().set_hit_left_slope(true);
             self.flags().set_hit_bottom_wall(true);
         }
@@ -449,6 +450,8 @@ pub trait PhysicalEntity {
         let tile_size = state.tile_size.as_int() * 0x200;
         let half_tile_size = tile_size / 2;
         let quarter_tile_size = half_tile_size / 2;
+
+        self.flags().set_hit_left_lower_half(true);
 
         if (self.x() < (x * 2 + 1) * half_tile_size)
             && (self.x() > (x * 2 - 1) * half_tile_size)
@@ -469,7 +472,6 @@ pub trait PhysicalEntity {
                 self.set_vel_y(0);
             }
 
-            self.flags().set_hit_left_lower_half(true);
             self.flags().set_hit_left_slope(true);
             self.flags().set_hit_bottom_wall(true);
         }
@@ -480,6 +482,8 @@ pub trait PhysicalEntity {
         let tile_size = state.tile_size.as_int() * 0x200;
         let half_tile_size = tile_size / 2;
         let quarter_tile_size = half_tile_size / 2;
+
+        self.flags().set_hit_right_lower_half(true);
 
         if (self.x() < (x * 2 + 1) * half_tile_size)
             && (self.x() > (x * 2 - 1) * half_tile_size)
@@ -500,7 +504,6 @@ pub trait PhysicalEntity {
                 self.set_vel_y(0);
             }
 
-            self.flags().set_hit_right_lower_half(true);
             self.flags().set_hit_right_slope(true);
             self.flags().set_hit_bottom_wall(true);
         }
@@ -511,6 +514,8 @@ pub trait PhysicalEntity {
         let tile_size = state.tile_size.as_int() * 0x200;
         let half_tile_size = tile_size / 2;
         let quarter_tile_size = half_tile_size / 2;
+
+        self.flags().set_hit_right_higher_half(true);
 
         if (self.x() < (x * 2 + 1) * half_tile_size)
             && (self.x() > (x * 2 - 1) * half_tile_size)
@@ -533,7 +538,6 @@ pub trait PhysicalEntity {
                 self.set_vel_y(0);
             }
 
-            self.flags().set_hit_right_higher_half(true);
             self.flags().set_hit_right_slope(true);
             self.flags().set_hit_bottom_wall(true);
         }
@@ -621,6 +625,8 @@ pub trait PhysicalEntity {
         let half_tile_size = tile_size / 2;
         let quarter_tile_size = half_tile_size / 2;
 
+        self.flags().set_hit_left_higher_half(true);
+
         if self.x() < (x * 2 + 1) * half_tile_size
             && self.x() > (x * 2 - 1) * half_tile_size
             && (self.y() + self.hit_bounds().bottom as i32) > (y * tile_size) + (self.x() - x * tile_size) - quarter_tile_size
@@ -636,7 +642,6 @@ pub trait PhysicalEntity {
                 self.set_vel_y(0);
             }
 
-            self.flags().set_hit_left_higher_half(true);
             self.flags().set_hit_left_slope(true);
             self.flags().set_hit_bottom_wall(true);
         }
@@ -647,6 +652,8 @@ pub trait PhysicalEntity {
         let tile_size = state.tile_size.as_int() * 0x200;
         let half_tile_size = tile_size / 2;
         let quarter_tile_size = half_tile_size / 2;
+
+        self.flags().set_hit_right_higher_half(true);
 
         if (self.x() < (x * 2 + 1) * half_tile_size)
             && (self.x() > (x * 2 - 1) * half_tile_size)
@@ -663,7 +670,6 @@ pub trait PhysicalEntity {
                 self.set_vel_y(0);
             }
 
-            self.flags().set_hit_right_higher_half(true);
             self.flags().set_hit_right_slope(true);
             self.flags().set_hit_bottom_wall(true);
         }
